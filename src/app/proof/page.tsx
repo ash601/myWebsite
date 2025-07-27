@@ -108,8 +108,8 @@ export default function ProofPage() {
           <div
             key={project.id}
             className="relative h-screen flex items-center group cursor-pointer overflow-hidden"
-            onMouseEnter={() => setHoveredProject(project.id)}
-            onMouseLeave={() => setHoveredProject(null)}
+                          onMouseEnter={() => setHoveredProject(project.id)}
+              onMouseLeave={() => setHoveredProject(null)}
           >
             {/* Full-width Background Image */}
             <div className="absolute inset-0">
