@@ -106,7 +106,7 @@ export default function ContactPage() {
       <main className="relative z-10 flex items-center justify-center min-h-screen px-6 py-20">
         
         {/* Glassmorphism Card */}
-        <div className="w-full max-w-[640px] min-w-[320px] bg-[rgba(12,14,20,0.55)] backdrop-blur-[24px] border border-white/8 rounded-[28px] p-12 md:p-16 shadow-[0_30px_80px_rgba(0,0,0,0.6)] relative">
+        <div className="w-full max-w-[640px] min-w-[320px] bg-[rgba(12,14,20,0.55)] backdrop-blur-[24px] border border-white/8 rounded-[28px] p-12 md:p-16 shadow-[0_30px_80px_rgba(0,0,0,0.6)] relative mt-6">
           
           {/* Inner highlight */}
           <div className="absolute inset-0 rounded-[28px] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] pointer-events-none" />

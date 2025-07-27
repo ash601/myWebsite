@@ -113,7 +113,7 @@ export default function PortfolioPage() {
       <div className="relative z-10 container mx-auto px-6 py-20">
         
         {/* Header Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 mt-8">
           <h1 className="text-[clamp(40px,6vw,56px)] text-white/95 font-serif leading-tight tracking-tight mb-4">
             Selected Work
           </h1>
