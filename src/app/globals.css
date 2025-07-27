@@ -1,26 +1,425 @@
 @import "tailwindcss";
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand Colors */
+  --c-accent: #5b5bff;
+  --c-accent-alt: #00d4ff;
+  --c-background: #0a0a0d;
+  --c-surface: rgba(255, 255, 255, 0.06);
+  --c-text-high: #f5f5f5;
+  --c-text-low: #b3b3b3;
+  --c-error: #ff5a5a;
+
+  /* Glass Card Border */
+  --glass-border: rgba(255, 255, 255, 0.14);
+
+  /* Tailwind Color Mappings to Futuristic Colors */
+  --background: var(--c-background);
+  --foreground: var(--c-text-high);
+  --card: var(--c-surface);
+  --card-foreground: var(--c-text-high);
+  --popover: var(--c-surface);
+  --popover-foreground: var(--c-text-high);
+  --primary: var(--c-accent);
+  --primary-foreground: var(--c-text-high);
+  --secondary: rgba(255, 255, 255, 0.1);
+  --secondary-foreground: var(--c-text-high);
+  --muted: rgba(255, 255, 255, 0.05);
+  --muted-foreground: var(--c-text-low);
+  --accent: var(--c-accent);
+  --accent-foreground: var(--c-text-high);
+  --destructive: var(--c-error);
+  --destructive-foreground: var(--c-text-high);
+  --border: var(--glass-border);
+  --input: var(--c-surface);
+  --ring: var(--c-accent);
+
+  /* Radius */
+  --radius: 0.625rem;
+
+  /* Font Variables */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--c-background);
+  color: var(--c-text-high);
+  font-family: var(--font-inter, var(--font-sans));
 }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Futuristic Design System */
+@layer components {
+  /* Typography Styles */
+  .t-h1 {
+    font-family: var(--font-clash-display, var(--font-sans));
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 72px;
+    letter-spacing: -1px;
+  }
+
+  .t-h2 {
+    font-family: var(--font-clash-display, var(--font-sans));
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -0.5px;
+  }
+
+  .t-h3 {
+    font-family: var(--font-clash-display, var(--font-sans));
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0px;
+  }
+
+  .t-body-l {
+    font-family: var(--font-inter, var(--font-sans));
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0px;
+  }
+
+  .t-body {
+    font-family: var(--font-inter, var(--font-sans));
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0px;
+  }
+
+  .t-caption {
+    font-family: var(--font-inter, var(--font-sans));
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0px;
+  }
+
+  .t-mono {
+    font-family: var(--font-space-mono, var(--font-mono));
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0px;
+  }
+
+  /* Glass Card Effect */
+  .e-glass-card {
+    background: var(--c-surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+  }
+
+  /* Enhanced Futuristic Glass Effects */
+  .e-glass-card-futuristic {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border: 1px solid transparent;
+    border-radius: 20px;
+    backdrop-filter: blur(25px) saturate(180%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .e-glass-card-futuristic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      rgba(91, 91, 255, 0.3) 0%,
+      rgba(0, 212, 255, 0.2) 25%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(0, 212, 255, 0.2) 75%,
+      rgba(91, 91, 255, 0.3) 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    -webkit-mask-composite: xor;
+  }
+
+  .e-glass-card-futuristic::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+    animation: shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* Futuristic Input */
+  .e-input-futuristic {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    backdrop-filter: blur(20px) saturate(150%);
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .e-input-futuristic:focus {
+    border-color: var(--c-accent);
+    box-shadow: 0 0 20px rgba(91, 91, 255, 0.3), 0 0 40px rgba(91, 91, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, rgba(91, 91, 255, 0.1) 0%, rgba(255, 255, 255, 0.06) 100%);
+  }
+
+  .e-input-futuristic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%);
+    border-radius: 12px 12px 0 0;
+  }
+
+  /* Scanning line animation for input focus */
+  .e-input-scanning::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.3) 50%, transparent 100%);
+    animation: scan 2s ease-in-out infinite;
+    border-radius: 12px;
+  }
+
+  /* Holographic button effect */
+  .e-button-holographic {
+    background: linear-gradient(135deg, var(--c-accent) 0%, rgba(91, 91, 255, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .e-button-holographic::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--c-accent), var(--c-accent-alt), var(--c-accent));
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .e-button-holographic:hover::before {
+    opacity: 1;
+  }
+
+  .e-button-holographic:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(91, 91, 255, 0.4), 0 0 30px rgba(0, 212, 255, 0.3);
+  }
+
+  /* Accent Glow Effect */
+  .e-accent-glow {
+    box-shadow: 0 0 12px rgba(91, 91, 255, 0.7);
+  }
+
+  /* Glow Arc Gradient */
+  .g-glow-arc {
+    background: linear-gradient(260deg, #7b5bff 0%, #3b63ff 50%, #00d4ff 100%);
+  }
+}
+
+@layer utilities {
+  /* Gradient utilities */
+  .bg-gradient-radial {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
+
+  /* Particle effect */
+  .particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(91, 91, 255, 0.6);
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .particle:nth-child(2) {
+    animation-delay: -1s;
+    background: rgba(0, 212, 255, 0.6);
+  }
+  .particle:nth-child(3) {
+    animation-delay: -2s;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  .particle:nth-child(4) {
+    animation-delay: -3s;
+    background: rgba(91, 91, 255, 0.4);
+  }
+  .particle:nth-child(5) {
+    animation-delay: -4s;
+    background: rgba(0, 212, 255, 0.4);
+  }
+
+  /* Text glow effects for futuristic navbar */
+  .text-shadow-glow {
+    text-shadow: 0 0 10px rgba(34, 211, 238, 0.8), 0 0 20px rgba(34, 211, 238, 0.6), 0 0 30px rgba(34, 211, 238, 0.4);
+  }
+  
+  .animate-scan {
+    animation: scan 3s linear infinite;
+  }
+}
+
+/* Animations */
+@keyframes shimmer {
+  0%,
+  100% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  50% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes scan {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Futuristic navbar scanning animation */
+@keyframes scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px) scale(1.1);
+  }
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .t-h1 {
+    font-size: 48px;
+    line-height: 56px;
+  }
+
+  .t-h2 {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+/* Autofill fix for dark inputs */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-text-fill-color: var(--c-text-high) !important;
+  caret-color: var(--c-text-high);
+  /* match your bg: bg-white/5 and border-white/10 */
+  -webkit-box-shadow:
+    0 0 0px 1000px rgba(255,255,255,0.05) inset,
+    0 0 0 1px rgba(255,255,255,0.10) inset !important;
+  box-shadow:
+    0 0 0px 1000px rgba(255,255,255,0.05) inset,
+    0 0 0 1px rgba(255,255,255,0.10) inset !important;
+  transition: background-color 9999s ease-out, color 9999s ease-out;
+}
+
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus {
+  -webkit-box-shadow:
+    0 0 0px 1000px rgba(255,255,255,0.06) inset,
+    0 0 0 1px rgba(255,255,255,0.20) inset !important;
+}
+
+:root { color-scheme: dark; }  /* helps UA defaults pick dark theme */

@@ -1,0 +1,71 @@
+<!-- #You must always right relevant comment 
+
+# File Structure Management
+
+## Automatic File Tree Generation
+- Generate and maintain a complete file tree structure in `PROJECT_STRUCTURE.md` at project root
+- Update file tree automatically when:
+  - New files/folders are created
+  - Files/folders are deleted
+  - Files/folders are moved/renamed
+  - Project structure changes
+
+## File Tree Format
+- Use standard tree format with proper indentation
+- Include file extensions
+- Exclude common ignored files (.git, node_modules, .next, dist, build)
+- Show relative paths from project root
+- Add timestamps for last update
+
+## File Tree Location
+- Main tree: `PROJECT_STRUCTURE.md` in project root
+- Component-specific trees in relevant README files
+- Include tree in project documentation
+
+## Tree Update Rules
+- Update tree before any major code changes
+- Regenerate tree after adding new features/components
+- Validate tree structure matches actual filesystem
+- Include brief descriptions for main directories
+- most important folder taht has to be updated is src
+
+## Example Tree Format
+```
+project-name/
+├── src/
+│   ├── components/
+│   │   ├── ui/
+│   │   └── myUis/
+│   ├── app/
+│   └── lib/
+├── public/
+└── README.md
+```
+
+Additionally, create a `.cursorrules` file in your project root for more immediate automation:
+
+```markdown:future-site/.cursorrules
+# Auto-generate file tree when structure changes
+- Always update PROJECT_STRUCTURE.md when files are added/removed
+- Maintain accurate directory listings in documentation
+- Include file trees in README files for better navigation
+- Update component documentation with relevant file structures
+```
+
+This configuration tells Cursor to:
+1. **Automatically generate** file trees in `PROJECT_STRUCTURE.md`
+2. **Update on changes** when files are added/removed/moved
+3. **Use consistent formatting** with proper tree syntax
+4. **Include in documentation** for better project navigation
+5. **Trigger updates** on saves and before commits
+
+The automation will work through Cursor's built-in file watching and rule processing system.
+
+## Automation Triggers
+- On file save in project root
+- Before git commits
+- When project structure documentation is opened
+- During code reviews
+
+##Always use this Design.json & globals.css for UI design
+- Stricly follow these when making stylictic changes -->

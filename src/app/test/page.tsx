@@ -1,40 +1,41 @@
 "use client"
 
-import type React from "react"
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
 /*
-  Home Waitlist Page - Glassmorphic Design
+  V1 Waitlist Page - Glassmorphic Design
   Inputs: none
-  Returns: Home page with waitlist signup using approved test design
+  Returns: Full-screen hero with glassmorphism card, countdown timer, and email signup
 */
-export default function WaitlistPage() {
+export default function TestPage() {
   // Email form state
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState('')
   
-  // Countdown timer state
+  // Countdown timer state - targeting a date 30 days from now
   const [timeLeft, setTimeLeft] = useState({
-    days: 273,
-    hours: 3,
-    minutes: 26,
-    seconds: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
   })
 
-  // Update countdown timer every second
+  // Calculate countdown to launch date
   useEffect(() => {
+    const targetDate = new Date()
+    targetDate.setDate(targetDate.getDate() + 30) // 30 days from now
+    
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 }
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 }
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 }
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 }
-        }
-        return prev
-      })
+      const now = new Date().getTime()
+      const difference = targetDate.getTime() - now
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        })
+      }
     }, 1000)
 
     return () => clearInterval(timer)
@@ -43,14 +44,16 @@ export default function WaitlistPage() {
   // Handle email form submission
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Email submitted:", email)
+    // Handle email signup logic here
+    console.log('Email submitted:', email)
   }
 
   return (
-    <div className="min-h-screen w-full bg-[#07090F] relative overflow-hidden">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#07090F] relative">
       
-      {/* Background Arc Glow - Same as test page */}
+      {/* Background Arc Glow */}
       <div className="absolute inset-0 overflow-hidden">
+        {/* Main violet/blue arc gradient */}
         <div 
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] opacity-70"
           style={{
@@ -64,6 +67,7 @@ export default function WaitlistPage() {
           }}
         />
         
+        {/* Secondary glow for depth */}
         <div 
           className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] opacity-40"
           style={{
@@ -75,6 +79,7 @@ export default function WaitlistPage() {
           }}
         />
 
+        {/* Subtle noise overlay */}
         <div 
           className="absolute inset-0 opacity-[0.02]"
           style={{
@@ -83,8 +88,27 @@ export default function WaitlistPage() {
         />
       </div>
 
-      {/* Main Hero Content - Account for fixed navbar */}
-      <main className="relative z-10 flex items-center justify-center min-h-screen px-6">
+      {/* Top Navigation - Floating Pill */}
+      <nav className="relative z-10 pt-8 px-6">
+        <div className="flex justify-center">
+          <div className="bg-black/30 backdrop-blur-md border border-white/10 rounded-full px-8 py-3 shadow-lg">
+            <div className="flex items-center space-x-8">
+              <span className="text-white/90 font-light tracking-wide">Waitlists</span>
+              <div className="flex space-x-6 text-sm">
+                <span className="text-white bg-white/10 px-3 py-1 rounded-full">V1</span>
+                <span className="text-white/50 hover:text-white/80 cursor-pointer transition-colors">V2</span>
+                <span className="text-white/50 hover:text-white/80 cursor-pointer transition-colors">V3</span>
+                <span className="text-white/50 hover:text-white/80 cursor-pointer transition-colors">V4</span>
+                <span className="text-white/50 hover:text-white/80 cursor-pointer transition-colors">V5</span>
+                <span className="text-white/50 hover:text-white/80 cursor-pointer transition-colors">V6</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Main Hero Content */}
+      <main className="relative z-10 flex items-center justify-center min-h-screen px-6 py-20">
         
         {/* Glassmorphism Card */}
         <div className="w-full max-w-[640px] min-w-[320px] bg-[rgba(12,14,20,0.55)] backdrop-blur-[24px] border border-white/8 rounded-[28px] p-12 md:p-16 shadow-[0_30px_80px_rgba(0,0,0,0.6)] relative">
@@ -96,12 +120,12 @@ export default function WaitlistPage() {
             
             {/* Main Heading */}
             <h1 className="text-[clamp(40px,6vw,56px)] text-white/95 font-serif leading-tight tracking-tight mb-6">
-              Join the waitlist
+              Join the waitlist.
             </h1>
             
             {/* Subtext */}
             <p className="text-[17px] text-white/70 mb-8 max-w-md mx-auto leading-relaxed">
-              Gain exclusive early access to our software and stay informed about launch updates
+              Gain exclusive early access to our software and stay informed about launch updates.
             </p>
             
             {/* Email Form */}
@@ -125,11 +149,13 @@ export default function WaitlistPage() {
             {/* Social Proof - Avatar Row */}
             <div className="flex items-center justify-center gap-3 mb-8">
               <div className="flex">
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-orange-400 to-red-500 border border-white/25 relative z-10" />
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-red-500 to-pink-500 border border-white/25 -ml-2 relative z-20" />
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border border-white/25 -ml-2 relative z-30" />
+                {/* Mock avatars with overlap */}
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 border border-white/25 relative z-10" />
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border border-white/25 -ml-2 relative z-20" />
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-green-400 to-blue-500 border border-white/25 -ml-2 relative z-30" />
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-yellow-400 to-red-500 border border-white/25 -ml-2 relative z-40" />
               </div>
-              <span className="text-white/60 text-sm ml-2">~ 2k+ Peoples already joined</span>
+              <span className="text-white/60 text-sm ml-2">~ 2k+ people already joined</span>
             </div>
             
             {/* Countdown Timer */}
@@ -171,6 +197,41 @@ export default function WaitlistPage() {
           </div>
         </div>
       </main>
+
+      {/* Footer Strip */}
+      <footer className="relative z-10 py-6 px-6">
+        <div className="flex justify-center space-x-8 text-xs text-white/30">
+          <a href="#" className="hover:text-white/50 transition-colors">Use this Template</a>
+          <a href="#" className="hover:text-white/50 transition-colors">Build in Framer</a>
+          <span>Backgrounds sourced from Grainient</span>
+        </div>
+      </footer>
+
+      {/* Responsive adjustments */}
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .glassmorphism-card {
+            padding: 28px;
+          }
+          
+          .heading {
+            font-size: clamp(36px, 8vw, 40px);
+          }
+          
+          .email-input, .cta-button {
+            height: 48px;
+          }
+          
+          .avatar {
+            width: 24px;
+            height: 24px;
+          }
+          
+          .countdown-number {
+            font-size: 28px;
+          }
+        }
+      `}</style>
     </div>
   )
-}
+} 

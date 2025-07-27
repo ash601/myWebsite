@@ -1,0 +1,452 @@
+{
+    "designSystemName": "Futuristic Glass Interface",
+    "version": "1.0.0",
+    "description": "A comprehensive design system profile for futuristic glass morphism interfaces with neon accents and holographic effects",
+    
+    "colorPalette": {
+      "brand": {
+        "accent": "#5b5bff",
+        "accentAlt": "#00d4ff",
+        "error": "#ff5a5a"
+      },
+      "surface": {
+        "background": "#0a0a0d",
+        "card": "rgba(255, 255, 255, 0.06)",
+        "cardBorder": "rgba(255, 255, 255, 0.14)",
+        "input": "rgba(255, 255, 255, 0.06)",
+        "muted": "rgba(255, 255, 255, 0.05)",
+        "secondary": "rgba(255, 255, 255, 0.1)"
+      },
+      "text": {
+        "high": "#f5f5f5",
+        "low": "#b3b3b3",
+        "primary": "#f5f5f5"
+      }
+    },
+  
+    "typography": {
+      "fonts": {
+        "primary": "Outfit, var(--font-sans)",
+        "display": "var(--font-clash-display, Outfit)",
+        "body": "var(--font-inter, Outfit)",
+        "mono": "var(--font-space-mono, var(--font-mono))"
+      },
+      "scales": {
+        "h1": {
+          "fontSize": "64px",
+          "lineHeight": "72px",
+          "fontWeight": "700",
+          "letterSpacing": "-1px",
+          "fontFamily": "var(--font-clash-display, Outfit)",
+          "color": "#f5f5f5",
+          "context": "Page titles, hero headings"
+        },
+        "h2": {
+          "fontSize": "48px",
+          "lineHeight": "56px",
+          "fontWeight": "600",
+          "letterSpacing": "-0.5px",
+          "fontFamily": "var(--font-clash-display, Outfit)",
+          "color": "#f5f5f5",
+          "context": "Section headings, major titles"
+        },
+        "h3": {
+          "fontSize": "32px",
+          "lineHeight": "40px",
+          "fontWeight": "600",
+          "letterSpacing": "0px",
+          "fontFamily": "var(--font-clash-display, Outfit)",
+          "color": "#f5f5f5",
+          "context": "Subsection headings, card titles"
+        },
+        "bodyLarge": {
+          "fontSize": "18px",
+          "lineHeight": "28px",
+          "fontWeight": "500",
+          "letterSpacing": "0px",
+          "fontFamily": "var(--font-inter, Outfit)",
+          "color": "#f5f5f5",
+          "context": "Prominent body text, introductions"
+        },
+        "body": {
+          "fontSize": "16px",
+          "lineHeight": "24px",
+          "fontWeight": "400",
+          "letterSpacing": "0px",
+          "fontFamily": "var(--font-inter, Outfit)",
+          "color": "#f5f5f5",
+          "context": "Standard body text, descriptions"
+        },
+        "caption": {
+          "fontSize": "12px",
+          "lineHeight": "16px",
+          "fontWeight": "400",
+          "letterSpacing": "0px",
+          "fontFamily": "var(--font-inter, Outfit)",
+          "color": "#b3b3b3",
+          "context": "Small text, metadata, labels"
+        },
+        "mono": {
+          "fontSize": "14px",
+          "lineHeight": "20px",
+          "fontWeight": "700",
+          "letterSpacing": "0px",
+          "fontFamily": "var(--font-space-mono, var(--font-mono))",
+          "color": "#f5f5f5",
+          "context": "Code snippets, technical data"
+        }
+      },
+      "responsive": {
+        "mobile": {
+          "h1": {
+            "fontSize": "48px",
+            "lineHeight": "56px"
+          },
+          "h2": {
+            "fontSize": "36px",
+            "lineHeight": "44px"
+          }
+        }
+      }
+    },
+  
+    "elementStyling": {
+      "cards": {
+        "basic": {
+          "background": "rgba(255, 255, 255, 0.06)",
+          "border": "1px solid rgba(255, 255, 255, 0.14)",
+          "borderRadius": "20px",
+          "backdropFilter": "blur(20px)",
+          "context": "Standard content cards, panels"
+        },
+        "futuristic": {
+          "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.02) 100%)",
+          "border": "1px solid transparent",
+          "borderRadius": "20px",
+          "backdropFilter": "blur(25px) saturate(180%)",
+          "position": "relative",
+          "overflow": "hidden",
+          "context": "Premium cards, feature highlights",
+          "pseudoElements": {
+            "before": {
+              "content": "''",
+              "position": "absolute",
+              "inset": "0",
+              "borderRadius": "20px",
+              "padding": "1px",
+              "background": "linear-gradient(135deg, rgba(91, 91, 255, 0.3) 0%, rgba(0, 212, 255, 0.2) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 212, 255, 0.2) 75%, rgba(91, 91, 255, 0.3) 100%)",
+              "mask": "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+              "maskComposite": "xor",
+              "context": "Animated border gradient"
+            },
+            "after": {
+              "content": "''",
+              "position": "absolute",
+              "top": "-50%",
+              "left": "-50%",
+              "width": "200%",
+              "height": "200%",
+              "background": "linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%)",
+              "animation": "shimmer 3s ease-in-out infinite",
+              "pointerEvents": "none",
+              "context": "Shimmer animation overlay"
+            }
+          }
+        },
+        "content": {
+          "textColor": "#f5f5f5",
+          "headingColor": "#f5f5f5",
+          "mutedTextColor": "#b3b3b3"
+        }
+      },
+  
+      "buttons": {
+        "holographic": {
+          "background": "linear-gradient(135deg, #5b5bff 0%, rgba(91, 91, 255, 0.8) 100%)",
+          "border": "1px solid rgba(255, 255, 255, 0.2)",
+          "color": "#f5f5f5",
+          "position": "relative",
+          "overflow": "hidden",
+          "borderRadius": "var(--radius)",
+          "context": "Primary action buttons, CTAs",
+          "states": {
+            "hover": {
+              "transform": "translateY(-1px)",
+              "boxShadow": "0 10px 25px rgba(91, 91, 255, 0.4), 0 0 30px rgba(0, 212, 255, 0.3)"
+            }
+          },
+          "pseudoElements": {
+            "before": {
+              "content": "''",
+              "position": "absolute",
+              "inset": "-2px",
+              "background": "linear-gradient(45deg, #5b5bff, #00d4ff, #5b5bff)",
+              "borderRadius": "inherit",
+              "zIndex": "-1",
+              "opacity": "0",
+              "transition": "opacity 0.3s ease",
+              "hoverOpacity": "1",
+              "context": "Holographic border effect"
+            }
+          }
+        },
+        "secondary": {
+          "background": "rgba(255, 255, 255, 0.1)",
+          "border": "1px solid rgba(255, 255, 255, 0.2)",
+          "color": "#f5f5f5",
+          "context": "Secondary actions, cancel buttons"
+        },
+        "text": {
+          "background": "transparent",
+          "border": "none",
+          "color": "#5b5bff",
+          "context": "Text-only actions, links"
+        }
+      },
+  
+      "inputs": {
+        "futuristic": {
+          "background": "linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.04) 100%)",
+          "border": "1px solid rgba(255, 255, 255, 0.2)",
+          "borderRadius": "12px",
+          "backdropFilter": "blur(20px) saturate(150%)",
+          "color": "#f5f5f5",
+          "padding": "12px 16px",
+          "fontSize": "16px",
+          "transition": "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+          "context": "Form inputs, search fields",
+          "states": {
+            "focus": {
+              "borderColor": "#5b5bff",
+              "boxShadow": "0 0 20px rgba(91, 91, 255, 0.3), 0 0 40px rgba(91, 91, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
+              "background": "linear-gradient(135deg, rgba(91, 91, 255, 0.1) 0%, rgba(255, 255, 255, 0.06) 100%)"
+            },
+            "placeholder": {
+              "color": "#b3b3b3"
+            }
+          },
+          "pseudoElements": {
+            "before": {
+              "content": "''",
+              "position": "absolute",
+              "top": "0",
+              "left": "0",
+              "right": "0",
+              "height": "1px",
+              "background": "linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 50%, transparent 100%)",
+              "borderRadius": "12px 12px 0 0",
+              "context": "Top highlight line"
+            }
+          }
+        }
+      },
+  
+      "icons": {
+        "default": {
+          "fill": "#f5f5f5",
+          "stroke": "#f5f5f5",
+          "background": "none",
+          "context": "Standard interface icons"
+        },
+        "accent": {
+          "fill": "#5b5bff",
+          "stroke": "#5b5bff",
+          "background": "none",
+          "context": "Active states, primary actions"
+        },
+        "muted": {
+          "fill": "#b3b3b3",
+          "stroke": "#b3b3b3",
+          "background": "none",
+          "context": "Inactive states, secondary information"
+        },
+        "containers": {
+          "background": "rgba(255, 255, 255, 0.1)",
+          "border": "1px solid rgba(255, 255, 255, 0.2)",
+          "borderRadius": "8px",
+          "padding": "8px",
+          "context": "Icon buttons, icon backgrounds"
+        }
+      },
+  
+      "navigation": {
+        "background": "rgba(255, 255, 255, 0.06)",
+        "border": "1px solid rgba(255, 255, 255, 0.14)",
+        "backdropFilter": "blur(20px)",
+        "context": "Navigation bars, menus",
+        "items": {
+          "default": {
+            "color": "#b3b3b3",
+            "background": "transparent"
+          },
+          "active": {
+            "color": "#f5f5f5",
+            "background": "rgba(91, 91, 255, 0.2)"
+          },
+          "hover": {
+            "color": "#f5f5f5",
+            "background": "rgba(255, 255, 255, 0.1)"
+          }
+        }
+      }
+    },
+  
+    "visualEffects": {
+      "shadows": {
+        "card": "0 4px 12px rgba(0, 0, 0, 0.3)",
+        "cardHover": "0 8px 24px rgba(0, 0, 0, 0.4)",
+        "button": "0 2px 8px rgba(91, 91, 255, 0.3)",
+        "buttonHover": "0 10px 25px rgba(91, 91, 255, 0.4), 0 0 30px rgba(0, 212, 255, 0.3)",
+        "accent": "0 0 12px rgba(91, 91, 255, 0.7)",
+        "context": "Apply to containers, not content elements"
+      },
+      "gradients": {
+        "glowArc": "linear-gradient(260deg, #7b5bff 0%, #3b63ff 50%, #00d4ff 100%)",
+        "cardFuturistic": "linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0.02) 100%)",
+        "buttonHolographic": "linear-gradient(135deg, #5b5bff 0%, rgba(91, 91, 255, 0.8) 100%)",
+        "borderAnimated": "linear-gradient(135deg, rgba(91, 91, 255, 0.3) 0%, rgba(0, 212, 255, 0.2) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(0, 212, 255, 0.2) 75%, rgba(91, 91, 255, 0.3) 100%)",
+        "context": "Apply to backgrounds and borders, never to text or icons directly"
+      },
+      "borderRadius": {
+        "small": "8px",
+        "medium": "12px",
+        "large": "20px",
+        "context": "Cards use large (20px), inputs use medium (12px), small elements use small (8px)"
+      },
+      "backdropFilter": {
+        "standard": "blur(20px)",
+        "enhanced": "blur(25px) saturate(180%)",
+        "input": "blur(20px) saturate(150%)",
+        "context": "Apply to glass elements for depth effect"
+      }
+    },
+  
+    "animations": {
+      "shimmer": {
+        "name": "shimmer",
+        "duration": "3s",
+        "timing": "ease-in-out",
+        "iteration": "infinite",
+        "keyframes": {
+          "0%, 100%": "transform: translateX(-100%) translateY(-100%) rotate(45deg)",
+          "50%": "transform: translateX(100%) translateY(100%) rotate(45deg)"
+        },
+        "context": "Apply to card overlays for premium effect"
+      },
+      "scan": {
+        "name": "scan",
+        "duration": "2s",
+        "timing": "ease-in-out",
+        "iteration": "infinite",
+        "keyframes": {
+          "0%": "left: -100%",
+          "100%": "left: 100%"
+        },
+        "context": "Apply to input focus states"
+      },
+      "float": {
+        "name": "float",
+        "duration": "6s",
+        "timing": "ease-in-out",
+        "iteration": "infinite",
+        "keyframes": {
+          "0%, 100%": "transform: translateY(0px) translateX(0px) scale(1); opacity: 0",
+          "10%, 90%": "opacity: 1",
+          "50%": "transform: translateY(-20px) translateX(10px) scale(1.1)"
+        },
+        "context": "Apply to particle effects and floating elements"
+      },
+      "transitions": {
+        "standard": "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+        "smooth": "all 0.3s ease",
+        "context": "Use for hover states and interactive elements"
+      }
+    },
+  
+    "spacing": {
+      "scale": {
+        "xs": "4px",
+        "sm": "8px",
+        "md": "12px",
+        "lg": "16px",
+        "xl": "20px",
+        "xxl": "24px",
+        "xxxl": "32px"
+      },
+      "context": {
+        "cardPadding": "24px",
+        "buttonPadding": "12px 24px",
+        "inputPadding": "12px 16px",
+        "iconPadding": "8px"
+      }
+    },
+  
+    "applicationRules": {
+      "DO": [
+        "Apply glass effects to card containers and panels",
+        "Use futuristic gradients on button backgrounds",
+        "Apply backdrop filters to glass elements",
+        "Use high contrast text colors (#f5f5f5) on dark backgrounds",
+        "Apply shadows to containers for depth",
+        "Use border radius consistently (20px for cards, 12px for inputs)",
+        "Apply accent colors (#5b5bff, #00d4ff) to interactive elements",
+        "Use animation effects on premium components",
+        "Apply proper color hierarchy (high contrast for primary text, muted for secondary)"
+      ],
+      "DO_NOT": [
+        "Apply card gradients to icons or text elements",
+        "Use button background colors on text content",
+        "Apply backdrop filters to text or icons",
+        "Use low contrast text colors on dark backgrounds",
+        "Apply shadows to text or inline elements",
+        "Mix border radius values inconsistently",
+        "Use accent colors for body text",
+        "Over-animate standard interface elements",
+        "Apply glass effects to text content",
+        "Use bright colors for large background areas"
+      ]
+    },
+  
+    "componentStates": {
+      "default": {
+        "opacity": "1",
+        "transform": "none",
+        "transition": "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+      },
+      "hover": {
+        "transform": "translateY(-1px)",
+        "enhancedShadow": true,
+        "brighterColors": true
+      },
+      "active": {
+        "transform": "translateY(0px)",
+        "reducedShadow": true
+      },
+      "focus": {
+        "outline": "2px solid #5b5bff",
+        "outlineOffset": "2px",
+        "enhancedGlow": true
+      },
+      "disabled": {
+        "opacity": "0.5",
+        "pointerEvents": "none",
+        "filter": "grayscale(50%)"
+      }
+    },
+  
+    "breakpoints": {
+      "mobile": "768px",
+      "typographyAdjustments": {
+        "h1": { "fontSize": "48px", "lineHeight": "56px" },
+        "h2": { "fontSize": "36px", "lineHeight": "44px" }
+      }
+    },
+  
+    "implementationNotes": {
+      "cssVariables": "Use CSS custom properties for consistent theming",
+      "glassEffects": "Combine background, border, and backdrop-filter for proper glass morphism",
+      "animations": "Use transform and opacity for performance",
+      "accessibility": "Maintain contrast ratios and provide focus indicators",
+      "performance": "Use will-change property for animated elements"
+    }
+  }
