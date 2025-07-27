@@ -120,7 +120,7 @@ export default function ContactPage() {
             
             {/* Subtext */}
             <p className="text-[17px] text-white/70 mb-8 max-w-md mx-auto leading-relaxed">
-              Have questions or want to work together? We'd love to hear from you.
+            Have questions or want to work together? We&apos;d love to hear from you.
             </p>
             
             {/* Contact Form */}
