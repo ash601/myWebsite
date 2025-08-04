@@ -11,63 +11,47 @@ export default function ProofPage() {
   // State for any interactive elements
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   
-  // Project data matching Richard Payne's actual projects
+  // Real superhero video project data
   const projects = [
     {
-      id: "delta-force",
-      title: "DELTA FORCE",
-      tagline: "Strike Hard. Strike Fast. Survive.",
-      collaborators: "TENCENT / PUPPETWORKS / TEAM JADE / TIMI STUDIO",
-      image: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?w=1600&h=900&fit=crop&crop=center"
+      id: "a",
+      title: "A",
+      video: "https://www.youtube.com/embed/XaI-EOVpDvo?autoplay=1&mute=1&loop=1&playlist=XaI-EOVpDvo&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720"
     },
     {
-      id: "apex-legends", 
-      title: "APEX LEGENDS",
-      tagline: "Titans fall, Legends rise.",
-      collaborators: "EA GAMES / SUN CREATURE / RESPAWN ENTERTAINMENT",
-      image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&h=900&fit=crop&crop=center"
+      id: "b", 
+      title: "B",
+      video: "https://www.youtube.com/embed/cfVY9wLKltA?autoplay=1&mute=1&loop=1&playlist=cfVY9wLKltA&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720"
     },
     {
-      id: "nfs-unbound",
-      title: "NFS: UNBOUND", 
-      tagline: "Burning Rubber, Breaking Limits.",
-      collaborators: "EA GAMES / CRITERION",
-      image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1600&h=900&fit=crop&crop=center"
+      id: "c",
+      title: "C", 
+      video: "https://www.youtube.com/embed/qaeHKoq_CLM?autoplay=1&mute=1&loop=1&playlist=qaeHKoq_CLM&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720"
     },
     {
-      id: "american-horror",
-      title: "AMERICAN HORROR STORIES",
-      tagline: "Medicine Meets Malevolence.",
-      collaborators: "FX / ELASTIC STUDIO / FEED ME LIGHT", 
-      image: "https://images.unsplash.com/photo-1520637836862-4d197d17c90a?w=1600&h=900&fit=crop&crop=center"
+      id: "d",
+      title: "D",
+      video: "https://www.youtube.com/embed/b9V3Pj47x4c?autoplay=1&mute=1&loop=1&playlist=b9V3Pj47x4c&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720"
     },
     {
-      id: "dark-horizons",
-      title: "DARK HORIZONS",
-      tagline: "Where Darkness Finds Form.",
-      collaborators: "CONCEPT ART / IP DEVELOPMENT",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=1600&h=900&fit=crop&crop=center"
+      id: "e",
+      title: "E",
+      video: "https://www.youtube.com/embed/ThgmWpXkKMI?autoplay=1&mute=1&loop=1&playlist=ThgmWpXkKMI&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720"
     },
     {
-      id: "midnight-suns",
-      title: "THE MIDNIGHT SUNS", 
-      tagline: "Heroes Unite, Darkness Falls.",
-      collaborators: "2K GAMES / MARVEL",
-      image: "https://images.unsplash.com/photo-1635805737707-575885ab0820?w=1600&h=900&fit=crop&crop=center"
+      id: "f",
+      title: "F", 
+      video: "https://www.youtube.com/embed/yvIHTbTTpuQ?autoplay=1&mute=1&loop=1&playlist=yvIHTbTTpuQ&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720"
     },
     {
-      id: "badman-silence",
-      title: "BADMAN SILENCE",
-      tagline: "Flipping the hero's script.",
-      collaborators: "SHORT FILM",
-      image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1600&h=900&fit=crop&crop=center"
+      id: "g",
+      title: "G",
+      video: "https://www.youtube.com/embed/cfVY9wLKltA?autoplay=1&mute=1&loop=1&playlist=cfVY9wLKltA&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720"
     },
     {
-      id: "game-awards",
-      title: "THE GAME AWARDS",
-      tagline: "Gaming Sparks Fly.", 
-      collaborators: "MAIN TITLES",
-      image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1600&h=900&fit=crop&crop=center"
+      id: "h",
+      title: "H",
+      video: "https://www.youtube.com/embed/qaeHKoq_CLM?autoplay=1&mute=1&loop=1&playlist=qaeHKoq_CLM&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720"
     }
   ]
 
@@ -76,85 +60,113 @@ export default function ProofPage() {
 
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center">
-        {/* Background GIF - Coding */}
-        <div className="absolute inset-0">
-          <img
-            src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnY2ZDZvbHhoaXQ4YjAzbDl3aXdpcWVxcWJnd3NvM3R0Z3R1ZzBmdyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/bGgsc5mWoryfgKBx1u/giphy.gif"
-            alt="Coding Animation"
-            className="w-full h-full object-cover"
+      <section className="relative h-[45vh] flex items-center">
+        {/* Background Video */}
+        <div className="absolute inset-0 overflow-hidden">
+          <iframe
+            src="https://www.youtube.com/embed/nq1M_Wc4FIc?autoplay=1&mute=1&loop=1&playlist=nq1M_Wc4FIc&controls=0&modestbranding=1&showinfo=0&rel=0&iv_load_policy=3&disablekb=1&fs=0&vq=hd720&start=13"
+            className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
           />
-          {/* Dark overlay for text readability */}
-          <div className="absolute inset-0 bg-black/40" />
         </div>
 
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-6">
-          <div className="max-w-2xl">
-            <h1 className="text-6xl md:text-7xl font-light tracking-wide text-white mb-6">
-              Cinematic Ventures
-            </h1>
-            <p className="text-xl font-light leading-relaxed text-white/90 max-w-lg">
-              Projects span focused storytelling, dynamic sequences, and epic spectacles—each demanding its own unique visual language. 
-              These worlds command deep respect, shaped by distinct animation, art direction, and narrative force that serves the story above all.
-            </p>
-          </div>
-        </div>
+
       </section>
 
-      {/* Project Gallery - Vertical Scrolling */}
+      {/* Project Gallery - Alternating Layout */}
       <section id="projects" className="relative">
-        {projects.map((project, index) => (
+        {/* Row 1: A | B */}
+        <div className="flex h-[45vh]">
           <div
-            key={project.id}
-            className="relative h-screen flex items-center group cursor-pointer overflow-hidden"
-                          onMouseEnter={() => setHoveredProject(project.id)}
-              onMouseLeave={() => setHoveredProject(null)}
+            className="relative w-1/2 flex items-center group cursor-pointer overflow-hidden"
+            onMouseEnter={() => setHoveredProject(projects[0].id)}
+            onMouseLeave={() => setHoveredProject(null)}
           >
-            {/* Full-width Background Image */}
-            <div className="absolute inset-0">
-              <img
-                src={project.image}
-                alt={project.title}
-                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              />
-              {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-all duration-500" />
+            <div className="absolute inset-0 overflow-hidden">
+              <iframe src={projects[0].video} className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-1000 group-hover:scale-105" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
             </div>
 
-            {/* Project Content */}
-            <div className="relative z-10 container mx-auto px-6">
-              <div className="max-w-4xl">
-                {/* Semi-transparent Collaborators Caption */}
-                <div className="mb-4">
-                  <span className="inline-block bg-black/30 backdrop-blur-sm px-4 py-2 text-sm font-light tracking-[0.1em] text-white/80 uppercase">
-                    {project.collaborators}
-                  </span>
-                </div>
-
-                {/* Large Project Title */}
-                <h2 className="text-5xl md:text-6xl font-light tracking-wide text-white mb-4 uppercase">
-                  {project.title}
-                </h2>
-
-                {/* Tagline */}
-                <p className="text-xl font-light text-white/90 tracking-wide">
-                  {project.tagline}
-                </p>
-              </div>
-            </div>
-
-            {/* Scroll Indicator (for last project) */}
-            {index === projects.length - 1 && (
-              <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60">
-                <div className="flex flex-col items-center space-y-2">
-                  <span className="text-sm font-light tracking-wide uppercase">Scroll to Connect</span>
-                  <div className="w-px h-8 bg-white/40"></div>
-                </div>
-              </div>
-            )}
           </div>
-        ))}
+          <div
+            className="relative w-1/2 flex items-center group cursor-pointer overflow-hidden"
+            onMouseEnter={() => setHoveredProject(projects[1].id)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            <div className="absolute inset-0 overflow-hidden">
+              <iframe src={projects[1].video} className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-1000 group-hover:scale-105" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
+            </div>
+
+          </div>
+        </div>
+
+        {/* Row 2: C */}
+        <div
+          className="relative h-[45vh] flex items-center group cursor-pointer overflow-hidden"
+          onMouseEnter={() => setHoveredProject(projects[2].id)}
+          onMouseLeave={() => setHoveredProject(null)}
+        >
+          <div className="absolute inset-0 overflow-hidden">
+            <iframe src={projects[2].video} className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-1000 group-hover:scale-105" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
+          </div>
+
+        </div>
+
+        {/* Row 3: D | E */}
+        <div className="flex h-[45vh]">
+          <div
+            className="relative w-1/2 flex items-center group cursor-pointer overflow-hidden"
+            onMouseEnter={() => setHoveredProject(projects[3].id)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            <div className="absolute inset-0 overflow-hidden">
+              <iframe src={projects[3].video} className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-1000 group-hover:scale-105" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
+            </div>
+          </div>
+          <div
+            className="relative w-1/2 flex items-center group cursor-pointer overflow-hidden"
+            onMouseEnter={() => setHoveredProject(projects[4].id)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            <div className="absolute inset-0 overflow-hidden">
+              <iframe src={projects[4].video} className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-1000 group-hover:scale-105" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
+            </div>
+          </div>
+        </div>
+
+        {/* Row 4: F */}
+        <div
+          className="relative h-[45vh] flex items-center group cursor-pointer overflow-hidden"
+          onMouseEnter={() => setHoveredProject(projects[5].id)}
+          onMouseLeave={() => setHoveredProject(null)}
+        >
+          <div className="absolute inset-0 overflow-hidden">
+            <iframe src={projects[5].video} className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-1000 group-hover:scale-105" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
+          </div>
+        </div>
+
+        {/* Row 5: G | H */}
+        <div className="flex h-[45vh]">
+          <div
+            className="relative w-1/2 flex items-center group cursor-pointer overflow-hidden"
+            onMouseEnter={() => setHoveredProject(projects[6].id)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            <div className="absolute inset-0 overflow-hidden">
+              <iframe src={projects[6].video} className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-1000 group-hover:scale-105" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
+            </div>
+          </div>
+          <div
+            className="relative w-1/2 flex items-center group cursor-pointer overflow-hidden"
+            onMouseEnter={() => setHoveredProject(projects[7].id)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            <div className="absolute inset-0 overflow-hidden">
+              <iframe src={projects[7].video} className="absolute top-1/2 left-1/2 w-[177.78vh] h-[56.25vw] min-w-full min-h-full transform -translate-x-1/2 -translate-y-1/2 transition-transform duration-1000 group-hover:scale-105" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Footer - Connect Section */}

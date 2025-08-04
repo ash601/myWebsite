@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from 'react'
+import Image from 'next/image'
 
 /*
   Portfolio page with glassmorphic design consistency
@@ -11,69 +12,69 @@ export default function PortfolioPage() {
   // State for hover interactions and modal views
   const [hoveredProject, setHoveredProject] = useState<string | null>(null)
   
-  // Project data with image placeholders and proper DIA styling
+  // Modern sensual portrait collection
   const projects = [
     {
-      id: "fashion-week-2025",
-      title: "FASHION WEEK AW 2025/26",
-      category: "Fashion",
-      image: "https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=800&h=600&fit=crop&crop=center",
+      id: "modern-beauty-1",
+      title: "ETHEREAL BEAUTY",
+      category: "Fashion Portrait",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&h=600&fit=crop&crop=face&auto=format&q=85",
       number: "001",
       size: "large"
     },
     {
-      id: "dinner-club-carbonis",
-      title: "DIA DINNER CLUB - CARBONIS PARIS", 
-      category: "Events",
-      image: "https://images.unsplash.com/photo-1414016642750-7fdd78dc33d9?w=600&h=400&fit=crop&crop=center",
+      id: "modern-beauty-2",
+      title: "GOLDEN HOUR", 
+      category: "Natural Beauty",
+      image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=600&h=450&fit=crop&crop=face&auto=format&q=85",
       number: "002",
       size: "medium"
     },
     {
-      id: "eyes-rodgers-hm",
-      title: "EYES RODGERS FOR H&M STUDIO",
-      category: "Brand Collaboration", 
-      image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=500&fit=crop&crop=center",
+      id: "modern-beauty-3",
+      title: "URBAN ELEGANCE",
+      category: "Street Fashion", 
+      image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&h=450&fit=crop&crop=face&auto=format&q=85",
       number: "003",
       size: "medium"
     },
     {
-      id: "icon-series-silberg",
-      title: "ICON SERIES W. EMILIA SILBERG",
-      category: "Icon Series",
-      image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&h=600&fit=crop&crop=center",
+      id: "modern-beauty-4",
+      title: "VINTAGE ALLURE",
+      category: "Editorial",
+      image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&h=600&fit=crop&crop=face&auto=format&q=85",
       number: "004",
       size: "large"
     },
     {
-      id: "rabanne-popup",
-      title: "RABANNE POP-UP LAUNCH",
-      category: "Event Production",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop&crop=center",
+      id: "modern-beauty-5",
+      title: "SOFT GLOW",
+      category: "Beauty Portrait",
+      image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&h=450&fit=crop&crop=face&auto=format&q=85",
       number: "005", 
       size: "medium"
     },
     {
-      id: "fashion-week-ss25",
-      title: "FASHION WEEK SS25",
+      id: "modern-beauty-6",
+      title: "FIERCE GRACE",
       category: "Fashion",
-      image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&h=500&fit=crop&crop=center",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&h=450&fit=crop&crop=face&auto=format&q=85",
       number: "006",
       size: "medium"
     },
     {
-      id: "dinner-club-cleo",
-      title: "DIA DINNER CLUB - CLEO",
-      category: "Events",
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&h=400&fit=crop&crop=center", 
+      id: "modern-beauty-7",
+      title: "NATURAL RADIANCE",
+      category: "Lifestyle Portrait",
+      image: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=600&h=450&fit=crop&crop=face&auto=format&q=85", 
       number: "007",
       size: "medium"
     },
     {
-      id: "ysl-beauty",
-      title: "YSL BEAUTY",
-      category: "Luxury Beauty",
-      image: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=600&fit=crop&crop=center",
+      id: "modern-beauty-8",
+      title: "CONTEMPORARY MUSE",
+      category: "Artistic Portrait",
+      image: "https://images.unsplash.com/photo-1520637836862-4d197d17c90a?w=800&h=600&fit=crop&crop=face&auto=format&q=85",
       number: "008",
       size: "large"
     }
@@ -140,10 +141,14 @@ export default function PortfolioPage() {
               
               {/* Project Image */}
               <div className="absolute inset-2 rounded-[16px] overflow-hidden">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority={index < 3}
+                  quality={85}
                 />
                 {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-all duration-500" />
