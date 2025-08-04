@@ -68,7 +68,7 @@ export default function HomePage() {
             
             {/* Main Heading */}
             <h1 className="text-[clamp(48px,8vw,72px)] text-white/95 font-serif leading-tight tracking-tight mb-2">
-              I&apos;m Ash,
+              I&apos;m Anshul,
             </h1>
             
             {/* Subheading */}
